@@ -1,0 +1,20 @@
+{
+  "name": "Personal Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      "USERNAME": "${localEnv:USER}"
+    }
+  },
+  "containerUser": "${localEnv:USER}",
+  "remoteUser": "${localEnv:USER}",
+  "updateRemoteUserUID": true,
+  "workspaceMount": "source=${localEnv:HOME}/workspace,target=/home/${localEnv:USER}/workspace,type=bind",
+  "workspaceFolder": "/home/${localEnv:USER}/workspace",
+  "mounts": [
+    "source=/etc/localtime,target=/etc/localtime,type=bind,readonly"
+  ],
+  "init": true,
+  "shutdownAction": "none"
+}
