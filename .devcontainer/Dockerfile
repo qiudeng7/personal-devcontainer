@@ -1,5 +1,8 @@
 FROM gh-proxy.org/docker/archlinux:base
 
+# This Dockerfile is parameterized by devcontainer.json. USERNAME is selected
+# at build time; USER_UID and USER_GID are initial image values that Dev
+# Containers may align with the host user when it creates the container.
 ARG USERNAME=dev
 ARG USER_UID=1000
 ARG USER_GID=${USER_UID}
