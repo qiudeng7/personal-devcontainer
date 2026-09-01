@@ -7,18 +7,18 @@ readonly CONFIG_FILE="${PROJECT_DIR}/.devcontainer/devcontainer.json"
 readonly HOST_WORKSPACE="${HOME:?HOME is not set}/workspace"
 
 if ! command -v docker >/dev/null 2>&1; then
-  printf '错误：未找到 docker。\n' >&2
+  printf 'Error: docker was not found.\n' >&2
   exit 1
 fi
 
 if ! command -v devcontainer >/dev/null 2>&1; then
-  printf '错误：未找到 devcontainer CLI。\n' >&2
-  printf '请在 VS Code 中运行 “Dev Containers: Install devcontainer CLI”。\n' >&2
+  printf 'Error: devcontainer CLI was not found.\n' >&2
+  printf 'Run "Dev Containers: Install devcontainer CLI" in VS Code.\n' >&2
   exit 1
 fi
 
 if ! docker info >/dev/null 2>&1; then
-  printf '错误：无法连接 Docker daemon。\n' >&2
+  printf 'Error: unable to connect to the Docker daemon.\n' >&2
   exit 1
 fi
 
@@ -32,5 +32,5 @@ devcontainer up \
   --workspace-folder "${PROJECT_DIR}" \
   --config "${CONFIG_FILE}"
 
-printf '\n容器已就绪。请在 VS Code 中运行：\n'
+printf '\nThe container is ready. Run the following command in VS Code:\n'
 printf 'Dev Containers: Attach to Running Container...\n'
