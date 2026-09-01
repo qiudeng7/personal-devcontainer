@@ -27,8 +27,10 @@ README 目前只保留简短简介。设计和维护约定先记录在本文件�
 
 - `.devcontainer/Dockerfile` 是由 `devcontainer.json` 参数化的实现文件，不是独立
   的最终运行契约。
+- Dockerfile 中的构建参数不提供默认值，必须全部由 `devcontainer.json` 显式传入。
 - `USERNAME` 在构建时取宿主机的 `USER`，因此谁构建，镜像中的用户就叫什么。
-- Dockerfile 中的 `USER_UID` 和 `USER_GID` 是镜像初始值，不代表最终运行值。
+- `USER_UID` 和 `USER_GID` 当前由 `devcontainer.json` 传入初始值 `1000`，不代表
+  最终运行值。
 - Dev Containers 在创建容器时通过 `updateRemoteUserUID` 将 UID/GID 与宿主机
   当前用户对齐。共享目录的权限依靠数字 UID/GID，而不是用户名文本。
 - `containerUser` 和 `remoteUser` 都使用上述构建用户，保证容器进程和 VS Code
