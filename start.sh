@@ -24,9 +24,6 @@ fi
 
 mkdir -p -- "${HOST_WORKSPACE}"
 
-# devcontainer.json 同时使用该值作为构建阶段的用户名和创建容器时选用的用户。
-export USER="${USER:-$(id -un)}"
-
 devcontainer up \
   --workspace-folder "${PROJECT_DIR}" \
   --config "${CONFIG_FILE}"

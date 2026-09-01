@@ -5,16 +5,16 @@
     "context": "..",
     "args": {
       // 每个构建参数的具体含义见 Dockerfile 中对应 ARG 的注释。
-      "USERNAME": "${localEnv:USER}",
+      "USERNAME": "dev",
       "USER_UID": "1000",
       "USER_GID": "1000"
     }
   },
-  "containerUser": "${localEnv:USER}",
-  "remoteUser": "${localEnv:USER}",
+  "containerUser": "dev",
+  "remoteUser": "dev",
   "updateRemoteUserUID": true,
-  "workspaceMount": "source=${localEnv:HOME}/workspace,target=/home/${localEnv:USER}/workspace,type=bind",
-  "workspaceFolder": "/home/${localEnv:USER}/workspace",
+  "workspaceMount": "source=${localEnv:HOME}/workspace,target=/home/dev/workspace,type=bind",
+  "workspaceFolder": "/home/dev/workspace",
   "mounts": [
     "source=/etc/localtime,target=/etc/localtime,type=bind,readonly"
   ],

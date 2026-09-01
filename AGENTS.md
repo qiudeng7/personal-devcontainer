@@ -30,15 +30,20 @@ README 目前只保留简短简介。设计和维护约定先记录在本文件�
 - Dockerfile 中的构建参数不提供默认值，必须全部由 `devcontainer.json` 显式传入。
 - 每个构建参数的语义写在 Dockerfile 对应的 `ARG` 前；`devcontainer.json` 只引用
   该说明，不重复维护参数文档。
-- `USERNAME` 在构建时取宿主机的 `USER`，因此谁构建，镜像中的用户就叫什么。
+- 容器用户名固定为 `dev`，从而保证预构建镜像可被不同宿主机用户复用。
 - `USER_UID` 和 `USER_GID` 当前由 `devcontainer.json` 传入初始值 `1000`，不代表
   最终运行值。
 - Dev Containers 在创建容器时通过 `updateRemoteUserUID` 将 UID/GID 与宿主机
   当前用户对齐。共享目录的权限依靠数字 UID/GID，而不是用户名文本。
-- `containerUser` 和 `remoteUser` 都使用上述构建用户，保证容器进程和 VS Code
-  进程采用同一身份。
-- 如果以后改成由 GitHub Actions 构建并发布通用预构建镜像，必须重新设计用户
-  策略；不能直接沿用构建机的用户名。
+- `containerUser` 和 `remoteUser` 都固定使用 `dev`，保证容器进程和 VS Code
+  进程采用同一身份；它们不会创建用户或在 Attach 时修改用户身份。
+- UID/GID 只在容器创建阶段对齐，不会在每次 Attach 时变化；一个运行中的容器
+  只对应一名宿主机用户。
+- Dev Container CLI 会生成 UID/GID 对齐后的本地派生镜像，并递归迁移
+  `/home/dev` 的所有权；基础镜像中的 `1000:1000` 保持不变。
+- 用户级文件必须位于 `/home/dev`；HOME 之外的系统工具应保持 `root:root`，避免
+  UID/GID 调整后遗留旧的数字所有权。
+- 完整决策见 `docs/decisions/1-user-name-and-permissions.md`。
 
 ## 目录职责
 
@@ -48,6 +53,7 @@ README 目前只保留简短简介。设计和维护约定先记录在本文件�
   不要擅自引入复杂框架。
 - `start.sh`：宿主机入口，只负责前置检查和调用 Dev Container CLI。
 - `docs/`：未来的设计、使用和维护文档。
+- `docs/decisions/`：记录已经接受的重要设计决策及其背景和影响。
 
 ## 秘密与源码
 

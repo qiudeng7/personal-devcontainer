@@ -1,3 +1,5 @@
-# Documentation
+# 文档
 
-此目录预留给项目设计、使用流程和维护文档。
+## 决策记录
+
+- [1. 固定用户名与权限映射](decisions/1-user-name-and-permissions.md)
