@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Keep this legacy deployment identifier to preserve the existing public Workers URL.
+  "name": "vercel-ui-demo",
+  "compatibility_date": "2026-08-19",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}

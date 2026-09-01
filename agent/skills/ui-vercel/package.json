@@ -1,0 +1,40 @@
+{
+  "name": "ui-vercel",
+  "version": "0.1.0",
+  "description": "框架无关的 Vercel 风格 UI 参考：9 个页面样板、可复用组件契约与 Codex Skill",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qiudeng7/personal-configs.git",
+    "directory": "agent/skills/ui-vercel"
+  },
+  "homepage": "https://vercel-ui-demo.qiudeng.workers.dev",
+  "type": "module",
+  "packageManager": "pnpm@11.10.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "check": "pnpm typecheck && pnpm test && pnpm lint",
+    "test:browser": "pnpm build && node scripts/browser-smoke.mjs",
+    "screenshots": "pnpm build && node scripts/capture-screenshots.mjs",
+    "deploy": "pnpm build && wrangler deploy"
+  },
+  "dependencies": {
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.9",
+    "playwright": "^1.62.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.1",
+    "vitest": "^4.1.11",
+    "wrangler": "^4.124.0"
+  }
+}

@@ -1,0 +1,59 @@
+.ui-dialog {
+  width: min(92vw, 540px);
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-4);
+  color: var(--ink);
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-large);
+}
+.ui-dialog::backdrop {
+  background: rgb(0 0 0 / 58%);
+}
+.ui-dialog[open] {
+  animation: ui-dialog-enter var(--duration-ui) var(--ease-out);
+}
+.ui-dialog > header {
+  min-height: 56px;
+  padding: 0 var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.ui-dialog h2 {
+  margin: 0;
+  font-size: 14px;
+}
+.ui-dialog > header button {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: var(--radius-1);
+  color: var(--ink-secondary);
+  background: transparent;
+  cursor: pointer;
+}
+.ui-dialog > header button:hover {
+  color: var(--ink);
+  background: var(--surface-muted);
+}
+.ui-dialog__body {
+  padding: var(--space-5);
+}
+@keyframes ui-dialog-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.97);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-button,
+  .ui-switch,
+  .ui-switch i,
+  .ui-dialog[open] {
+    animation-duration: 1ms;
+    transition-duration: 1ms;
+  }
+}

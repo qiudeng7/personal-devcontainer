@@ -1,0 +1,108 @@
+.lab-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--lab-height);
+  padding: 0 18px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 86%, transparent);
+  background: color-mix(in srgb, var(--surface) 98%, transparent);
+}
+.lab-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  font-weight: 620;
+  white-space: nowrap;
+}
+.lab-brand .brand-triangle {
+  border-left-width: 7px;
+  border-right-width: 7px;
+  border-bottom-width: 12px;
+}
+.lab-brand small {
+  padding: 3px 6px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-round);
+  color: var(--ink-tertiary);
+  font: 8px var(--font-mono);
+  font-weight: 400;
+}
+.lab-navigation {
+  justify-self: center;
+  max-width: min(100%, 920px);
+  padding: 3px;
+  display: flex;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface-muted);
+  scrollbar-width: none;
+}
+.lab-navigation::-webkit-scrollbar {
+  display: none;
+}
+.lab-navigation a {
+  min-height: 31px;
+  padding: 0 10px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  color: var(--ink-tertiary);
+  font-size: 10px;
+  white-space: nowrap;
+}
+.lab-navigation a:hover {
+  color: var(--ink);
+}
+.lab-navigation a[aria-current] {
+  color: var(--ink);
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-small);
+}
+.lab-navigation b {
+  display: none;
+}
+.lab-count {
+  color: var(--ink-tertiary);
+  font: 9px var(--font-mono);
+  white-space: nowrap;
+}
+.page-outlet {
+  min-height: calc(100vh - var(--lab-height));
+  outline: 0;
+}
+
+@media (max-width: 980px) {
+  .lab-count {
+    display: none;
+  }
+  .lab-header {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .lab-header {
+    padding-inline: 10px;
+    gap: 9px;
+  }
+  .lab-brand > span,
+  .lab-brand > small {
+    display: none;
+  }
+  .lab-navigation {
+    justify-self: stretch;
+  }
+  .lab-navigation a span {
+    display: none;
+  }
+  .lab-navigation a b {
+    display: inline;
+    font-weight: 500;
+  }
+}

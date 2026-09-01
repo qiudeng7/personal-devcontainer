@@ -1,0 +1,39 @@
+<div class="ui-tabs" role="tablist" aria-label="Project sections">
+  <button
+    class="ui-tab"
+    id="project-tab-overview"
+    type="button"
+    role="tab"
+    aria-selected="true"
+    aria-controls="project-panel-overview"
+    tabindex="0"
+  >
+    Overview
+  </button>
+  <button
+    class="ui-tab"
+    id="project-tab-deployments"
+    type="button"
+    role="tab"
+    aria-selected="false"
+    aria-controls="project-panel-deployments"
+    tabindex="-1"
+  >
+    Deployments
+  </button>
+</div>
+<section
+  id="project-panel-overview"
+  role="tabpanel"
+  aria-labelledby="project-tab-overview"
+>
+  Overview content
+</section>
+<section
+  id="project-panel-deployments"
+  role="tabpanel"
+  aria-labelledby="project-tab-deployments"
+  hidden
+>
+  Deployment content
+</section>

@@ -1,0 +1,283 @@
+.settings-page {
+  min-height: calc(100vh - var(--lab-height));
+  background: var(--surface-subtle);
+}
+.settings-topbar {
+  height: 58px;
+  padding: 0 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.settings-topbar > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+}
+.settings-topbar .brand-triangle {
+  border-left-width: 6px;
+  border-right-width: 6px;
+  border-bottom-width: 10px;
+}
+.settings-topbar span {
+  color: var(--ink-tertiary);
+}
+.settings-topbar svg {
+  width: 10px;
+  color: var(--ink-tertiary);
+}
+.settings-layout {
+  width: min(calc(100% - 48px), 1050px);
+  margin-inline: auto;
+  padding: 50px 0 85px;
+  display: grid;
+  grid-template-columns: 200px minmax(0, 740px);
+  gap: 55px;
+}
+.settings-layout > aside {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.settings-layout > aside h2 {
+  margin: 0 9px 15px;
+  font-size: 14px;
+}
+.settings-layout > aside button,
+.settings-layout > aside a {
+  min-height: 32px;
+  padding: 0 9px;
+  display: flex;
+  align-items: center;
+  border: 0;
+  border-radius: 6px;
+  color: var(--ink-secondary);
+  background: transparent;
+  text-align: left;
+  font-size: 10px;
+  cursor: pointer;
+}
+.settings-layout > aside button:hover,
+.settings-layout > aside button.active,
+.settings-layout > aside a:hover {
+  color: var(--ink);
+  background: var(--surface-muted);
+}
+.settings-layout > aside small {
+  margin: 27px 9px 7px;
+  color: var(--ink-tertiary);
+  font: 7px var(--font-mono);
+  letter-spacing: 0.08em;
+}
+.settings-heading {
+  min-height: 57px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.settings-heading h1 {
+  margin: 0 0 6px;
+  font-size: 27px;
+  letter-spacing: -0.04em;
+}
+.settings-heading p {
+  margin: 0;
+  color: var(--ink-tertiary);
+  font-size: 9px;
+}
+.settings-card {
+  margin-bottom: 17px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-3);
+  background: var(--surface-raised);
+}
+.settings-card > header {
+  min-height: 74px;
+  padding: 17px 19px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  border-bottom: 1px solid var(--border);
+}
+.settings-card h2 {
+  margin: 0;
+  font-size: 12px;
+}
+.settings-card p {
+  margin: 0;
+  color: var(--ink-tertiary);
+  font-size: 9px;
+}
+.settings-form-row {
+  min-height: 90px;
+  padding: 17px 19px;
+  display: grid;
+  grid-template-columns: 215px 1fr;
+  align-items: center;
+  gap: 22px;
+  border-bottom: 1px solid var(--border);
+}
+.settings-form-row:last-child {
+  border: 0;
+}
+.settings-form-row > label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 550;
+}
+.settings-form-row > label small {
+  color: var(--ink-tertiary);
+  font-size: 8px;
+  font-weight: 400;
+}
+.avatar-upload {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.avatar-upload > span {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  color: #fff;
+  background: #111;
+}
+.avatar-upload button {
+  min-height: 29px;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  font-size: 8px;
+  cursor: pointer;
+}
+.avatar-upload button:last-child {
+  color: var(--danger);
+  border: 0;
+}
+.settings-switch-row {
+  min-height: 74px;
+  padding: 15px 19px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+.settings-switch-row:last-child {
+  border: 0;
+}
+.settings-switch-row > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.settings-switch-row b {
+  font-size: 10px;
+}
+.settings-switch-row small {
+  color: var(--ink-tertiary);
+  font-size: 8px;
+}
+.settings-panels .ui-table td b {
+  display: block;
+  color: var(--ink);
+  font-size: 10px;
+}
+.settings-panels .ui-table td small {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-tertiary);
+  font-size: 8px;
+}
+.billing-summary {
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-3);
+  background: var(--surface-raised);
+}
+.billing-summary > div:nth-of-type(1) {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.billing-summary h2 {
+  margin: 0;
+  font-size: 25px;
+}
+.billing-summary strong {
+  font-size: 18px;
+}
+.billing-summary strong small {
+  color: var(--ink-tertiary);
+  font-size: 8px;
+}
+.billing-summary > p {
+  color: var(--ink-secondary);
+  font-size: 9px;
+}
+.billing-meter {
+  height: 5px;
+  margin-top: 25px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: var(--surface-muted);
+}
+.billing-meter i {
+  display: block;
+  width: 68.1%;
+  height: 100%;
+  background: var(--accent);
+}
+.billing-summary footer {
+  margin-top: 9px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--ink-tertiary);
+  font-size: 8px;
+}
+.billing-summary footer button {
+  border: 0;
+  color: var(--ink);
+  background: none;
+  font-size: 8px;
+  cursor: pointer;
+}
+@media (max-width: 700px) {
+  .settings-layout {
+    width: calc(100% - 32px);
+    display: block;
+    padding-top: 32px;
+  }
+  .settings-layout > aside {
+    margin-bottom: 25px;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  .settings-layout > aside h2,
+  .settings-layout > aside small,
+  .settings-layout > aside a {
+    display: none;
+  }
+  .settings-layout > aside button {
+    flex: 0 0 auto;
+  }
+  .settings-form-row {
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+  .settings-heading {
+    align-items: start;
+  }
+}

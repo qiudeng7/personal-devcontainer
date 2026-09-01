@@ -1,0 +1,4 @@
+interface:
+  display_name: "GH Proxy"
+  short_description: "Accelerate public developer downloads and data routes"
+  default_prompt: "Use $gh-proxy to diagnose this failed public download or data route and select the appropriate GitHub, container, SourceForge, cdnjs, or OpenSheet accelerator."

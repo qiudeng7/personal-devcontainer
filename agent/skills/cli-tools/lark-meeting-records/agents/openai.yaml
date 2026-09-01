@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lark Meeting Records"
+  short_description: "Read and verify AI summaries and verbatim transcripts"
+  default_prompt: "Use $lark-meeting-records to read and compare this Feishu/Lark meeting summary and verbatim transcript."

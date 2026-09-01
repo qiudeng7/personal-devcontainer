@@ -1,0 +1,27 @@
+.ui-status {
+  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ink-secondary);
+  font: 500 10px var(--font-sans);
+}
+.ui-status i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ink-tertiary);
+}
+.ui-status[data-tone="success"] i {
+  background: var(--success);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 13%, transparent);
+}
+.ui-status[data-tone="warning"] i {
+  background: var(--warning);
+}
+.ui-status[data-tone="danger"] i {
+  background: var(--danger);
+}
+.ui-status[data-tone="info"] i {
+  background: var(--info);
+}

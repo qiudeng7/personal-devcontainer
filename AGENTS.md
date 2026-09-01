@@ -26,6 +26,15 @@ README 目前只保留简短简介。设计和维护约定先记录在本文件�
   `.devcontainer/devcontainer.json` 成为创建容器的唯一事实来源。
 - 不要把普通的 `docker build`、`docker run` 加 Attach 描述为等价流程；它不会
   自动应用 `updateRemoteUserUID` 等 Dev Containers 行为。
+- 镜像构建时将项目复制到 `/personal-devcontainer`，以 `dev` 用户执行根目录的
+  `main.sh` 完成自定义安装，然后删除该临时目录。
+- 根目录的 `main.sh` 只负责编排各配置模块；每个模块使用自己的 `main.sh` 实现
+  安装逻辑。
+- `agent/` 保存 Codex 的用户级指令、配置和 Skills 素材。Codex 通过官方 Shell
+  安装脚本安装，素材由 `agent/main.sh` 部署到用户目录。
+- `agent/skills/` 支持任意层级的聚合目录；包含 `SKILL.md` 的目录视为一个 Skill，
+  不包含该文件的目录继续递归扫描。安装时按 Skill 目录名平铺，因此所有 Skill
+  的目录名必须全局唯一。
 
 ## 用户与权限语义
 
@@ -55,6 +64,8 @@ README 目前只保留简短简介。设计和维护约定先记录在本文件�
 - `.devcontainer/tools/`：以后存放开发工具的安装定义和脚本；用户明确设计之前
   不要擅自引入复杂框架。
 - `start.sh`：宿主机入口，只负责前置检查和调用 Dev Container CLI。
+- `main.sh`：镜像构建期的自定义安装入口，按明确顺序调用各配置模块。
+- `agent/`：Agent 配置模块，包含安装脚本、Codex 配置、用户级指令和 Skills。
 - `docs/`：未来的设计、使用和维护文档。
 - `docs/development/`：记录开发环境的设计机制与维护说明。
 
