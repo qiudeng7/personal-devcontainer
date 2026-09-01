@@ -4,10 +4,8 @@
     "dockerfile": "Dockerfile",
     "context": "..",
     "args": {
-      // 每个构建参数的具体含义见 Dockerfile 中对应 ARG 的注释。
-      "USERNAME": "dev",
-      "USER_UID": "1000",
-      "USER_GID": "1000"
+      // 构建参数具体含义见 Dockerfile 注释。
+      "USERNAME": "dev"
     }
   },
   "containerUser": "dev",

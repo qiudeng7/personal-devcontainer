@@ -1,17 +1,13 @@
 FROM gh-proxy.org/docker/archlinux:base
 
-# 以下所有构建参数均由 devcontainer.json 提供。
-
-# 镜像中创建的非 root 用户名，同时用于确定该用户的主目录和容器默认用户。
+# 镜像中创建的用户名，由 devcontainer.json 提供。用户名写入镜像后保持不变。
 ARG USERNAME
 
-# 构建镜像时分配给 USERNAME 的初始用户 ID。Dev Containers 创建容器时可能会将其
-# 调整为宿主机用户的 UID。
-ARG USER_UID
-
-# 构建镜像时分配给 USERNAME 的初始主组 ID。Dev Containers 创建容器时可能会将其
-# 调整为宿主机用户的 GID。
-ARG USER_GID
+# UID/GID 仅作为构建基础镜像时创建用户的临时默认值。启用
+# updateRemoteUserUID 后，Dev Containers 创建开发容器时会自动将其替换为
+# 创建者在宿主机上的 UID/GID。
+ARG USER_UID=1000
+ARG USER_GID=1000
 
 RUN pacman --sync --refresh --sysupgrade --noconfirm \
     && pacman --sync --noconfirm --needed \

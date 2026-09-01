@@ -24,9 +24,7 @@ UID/GID，不会重命名用户，也不会在每次 Attach 时重新调整身�
 {
   "build": {
     "args": {
-      "USERNAME": "dev",
-      "USER_UID": "1000",
-      "USER_GID": "1000"
+      "USERNAME": "dev"
     }
   },
   "containerUser": "dev",
@@ -35,12 +33,21 @@ UID/GID，不会重命名用户，也不会在每次 Attach 时重新调整身�
 }
 ```
 
+Dockerfile 内部为构建期身份提供临时默认值：
+
+```dockerfile
+ARG USER_UID=1000
+ARG USER_GID=1000
+```
+
 构建阶段创建 `dev:1000:1000`。Dev Containers 在 Linux 宿主机上创建容器时，
 再将 `dev` 的 UID/GID 调整为当前宿主机用户的 UID/GID。容器内的用户名和主目录
 始终为 `dev` 与 `/home/dev`，数字权限则跟随创建该容器的宿主机用户。
 
 `1000:1000` 是可预测的镜像初始值，不是最终运行权限。Linux 用户在镜像中必须
 拥有 UID/GID；即使 Dockerfile 不显式指定，`useradd` 也会分配一组数字身份。
+由于已经启用 `updateRemoteUserUID`，这两个初始值不需要由 `devcontainer.json`
+传入，也不应被使用者配置。
 
 ## 生命周期
 
