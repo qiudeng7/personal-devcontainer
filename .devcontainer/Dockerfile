@@ -1,17 +1,16 @@
 FROM gh-proxy.org/docker/archlinux:base
 
-# All build arguments below are supplied by devcontainer.json.
+# 以下所有构建参数均由 devcontainer.json 提供。
 
-# Name of the non-root account created in the image. It is also used for the
-# account's home directory and as the container's default user.
+# 镜像中创建的非 root 用户名，同时用于确定该用户的主目录和容器默认用户。
 ARG USERNAME
 
-# Initial numeric user ID assigned to USERNAME while building the image. Dev
-# Containers may align it with the host user's UID when creating the container.
+# 构建镜像时分配给 USERNAME 的初始用户 ID。Dev Containers 创建容器时可能会将其
+# 调整为宿主机用户的 UID。
 ARG USER_UID
 
-# Initial numeric primary group ID assigned to USERNAME while building the
-# image. Dev Containers may align it with the host user's GID at creation time.
+# 构建镜像时分配给 USERNAME 的初始主组 ID。Dev Containers 创建容器时可能会将其
+# 调整为宿主机用户的 GID。
 ARG USER_GID
 
 RUN pacman --sync --refresh --sysupgrade --noconfirm \

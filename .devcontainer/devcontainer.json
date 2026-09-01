@@ -4,7 +4,7 @@
     "dockerfile": "Dockerfile",
     "context": "..",
     "args": {
-      // See the ARG comments in Dockerfile for the meaning of each value.
+      // 每个构建参数的具体含义见 Dockerfile 中对应 ARG 的注释。
       "USERNAME": "${localEnv:USER}",
       "USER_UID": "1000",
       "USER_GID": "1000"

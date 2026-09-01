@@ -24,8 +24,7 @@ fi
 
 mkdir -p -- "${HOST_WORKSPACE}"
 
-# devcontainer.json uses this value both as the build-time username and as the
-# user selected when the container is created.
+# devcontainer.json 同时使用该值作为构建阶段的用户名和创建容器时选用的用户。
 export USER="${USER:-$(id -un)}"
 
 devcontainer up \
