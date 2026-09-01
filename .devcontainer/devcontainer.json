@@ -4,13 +4,14 @@
     "dockerfile": "Dockerfile",
     "context": "..",
     "args": {
-      // 构建参数具体含义见 Dockerfile 注释。
       "USERNAME": "dev"
     }
   },
+  // 用户名和权限的说明 docs/development/user.md
   "containerUser": "dev",
   "remoteUser": "dev",
   "updateRemoteUserUID": true,
+
   "workspaceMount": "source=${localEnv:HOME}/workspace,target=/home/dev/workspace,type=bind",
   "workspaceFolder": "/home/dev/workspace",
   "mounts": [

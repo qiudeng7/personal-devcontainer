@@ -1,11 +1,7 @@
 FROM gh-proxy.org/docker/archlinux:base
 
-# 镜像中创建的用户名，由 devcontainer.json 提供。用户名写入镜像后保持不变。
+# 用户名和权限见 docs/development/user.md
 ARG USERNAME
-
-# UID/GID 仅作为构建基础镜像时创建用户的临时默认值。启用
-# updateRemoteUserUID 后，Dev Containers 创建开发容器时会自动将其替换为
-# 创建者在宿主机上的 UID/GID。
 ARG USER_UID=1000
 ARG USER_GID=1000
 

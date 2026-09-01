@@ -1,5 +1,5 @@
 # 文档
 
-## 决策记录
+## 开发文档
 
-- [1. 固定用户名与权限映射](decisions/1-user-name-and-permissions.md)
+- [用户机制说明](development/user.md)

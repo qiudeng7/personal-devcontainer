@@ -42,7 +42,7 @@ README 目前只保留简短简介。设计和维护约定先记录在本文件�
   `/home/dev` 的所有权；基础镜像中的 `1000:1000` 保持不变。
 - 用户级文件必须位于 `/home/dev`；HOME 之外的系统工具应保持 `root:root`，避免
   UID/GID 调整后遗留旧的数字所有权。
-- 完整决策见 `docs/decisions/1-user-name-and-permissions.md`。
+- 完整说明见 `docs/development/user.md`。
 
 ## 目录职责
 
@@ -52,7 +52,7 @@ README 目前只保留简短简介。设计和维护约定先记录在本文件�
   不要擅自引入复杂框架。
 - `start.sh`：宿主机入口，只负责前置检查和调用 Dev Container CLI。
 - `docs/`：未来的设计、使用和维护文档。
-- `docs/decisions/`：记录已经接受的重要设计决策及其背景和影响。
+- `docs/development/`：记录开发环境的设计机制与维护说明。
 
 ## 秘密与源码
 
