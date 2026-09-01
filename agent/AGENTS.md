@@ -6,11 +6,6 @@
 
 下文提到的工具在开发环境都有对应的cli和skills，如果没有cli或skills，或cli未登录，可以提醒一下用户。
 
-## github
-
-用户的 github 名称是 `qiudeng7`，本地安装了gh-cli，大部分项目都会放到 github
-
-
 ## 阿里云
 
 用户常用阿里云的镜像仓库，边缘加速（ESA）功能，也在阿里云有服务器，你可以通过aliyun cli管理这些云服务。

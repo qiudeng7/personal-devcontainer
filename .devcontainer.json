@@ -1,12 +1,7 @@
 {
   "name": "Personal Dev Container",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": "..",
-    "args": {
-      "USERNAME": "dev"
-    }
-  },
+  // 镜像由 start.sh 在启动容器前构建并初始化用户目录。
+  "image": "personal-devcontainer:local",
   // 用户名和权限的说明 docs/development/user.md
   "containerUser": "dev",
   "remoteUser": "dev",
@@ -16,7 +11,10 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/home/dev/workspace,type=bind",
   "workspaceFolder": "/home/dev/workspace",
   "mounts": [
-    "source=/etc/localtime,target=/etc/localtime,type=bind,readonly"
+    "source=${localEnv:PERSONAL_DEVCONTAINER_HOME},target=/home/dev,type=bind",
+    "source=/etc/localtime,target=/etc/localtime,type=bind,readonly",
+    "source=${localEnv:HOME}/.ssh,target=/home/dev/.ssh,type=bind",
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
   ],
   "init": true,
   "shutdownAction": "none"
