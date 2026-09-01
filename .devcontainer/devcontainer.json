@@ -4,6 +4,7 @@
     "dockerfile": "Dockerfile",
     "context": "..",
     "args": {
+      // See the ARG comments in Dockerfile for the meaning of each value.
       "USERNAME": "${localEnv:USER}",
       "USER_UID": "1000",
       "USER_GID": "1000"
