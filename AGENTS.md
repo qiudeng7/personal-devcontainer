@@ -14,6 +14,10 @@ README 目前只保留简短简介。设计和维护约定先记录在本文件�
 - 基础镜像使用 `gh-proxy.org/docker/archlinux:base`。
 - 宿主机默认为 Linux，源码统一放在 `~/workspace`。
 - 宿主机的 `~/workspace` 挂载到容器内当前用户的 `~/workspace`。
+- `start.sh` 将宿主机的 `~/workspace` 作为 CLI 的 `--workspace-folder`，
+  `devcontainer.json` 通过 `${localWorkspaceFolder}` 引用同一路径，避免重复定义。
+- 本仓库目录只保存开发容器配置，通过 `--config` 显式传给 CLI，不作为实际
+  workspace 挂载源。
 - 容器共享宿主机的 `/etc/localtime`；系统时钟由宿主机内核提供。
 - 容器作为个人工作站长期运行，VS Code 断开时不自动停止。
 - 日常流程是先启动或复用容器，再使用 VS Code

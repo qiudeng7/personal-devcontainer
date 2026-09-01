@@ -25,7 +25,7 @@ fi
 mkdir -p -- "${HOST_WORKSPACE}"
 
 devcontainer up \
-  --workspace-folder "${PROJECT_DIR}" \
+  --workspace-folder "${HOST_WORKSPACE}" \
   --config "${CONFIG_FILE}"
 
 printf '\nThe container is ready. Run the following command in VS Code:\n'

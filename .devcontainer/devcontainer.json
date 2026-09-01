@@ -12,7 +12,8 @@
   "remoteUser": "dev",
   "updateRemoteUserUID": true,
 
-  "workspaceMount": "source=${localEnv:HOME}/workspace,target=/home/dev/workspace,type=bind",
+  // 宿主机工作区由 start.sh 通过 --workspace-folder 传入。
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/dev/workspace,type=bind",
   "workspaceFolder": "/home/dev/workspace",
   "mounts": [
     "source=/etc/localtime,target=/etc/localtime,type=bind,readonly"
