@@ -1,17 +1,15 @@
-FROM debian:bookworm-slim
+FROM gh-proxy.org/docker/archlinux:base
 
 ARG USERNAME=dev
 ARG USER_UID=1000
 ARG USER_GID=${USER_UID}
 
-ENV DEBIAN_FRONTEND=noninteractive
-
-RUN apt-get update \
-    && apt-get install --yes --no-install-recommends \
+RUN pacman --sync --refresh --sysupgrade --noconfirm \
+    && pacman --sync --noconfirm --needed \
         ca-certificates \
         sudo \
         tzdata \
-    && rm -rf /var/lib/apt/lists/* \
+    && pacman --sync --clean --clean --noconfirm \
     && groupadd --gid "${USER_GID}" "${USERNAME}" \
     && useradd \
         --uid "${USER_UID}" \
@@ -23,8 +21,6 @@ RUN apt-get update \
     && chmod 0440 "/etc/sudoers.d/${USERNAME}" \
     && mkdir -p "/home/${USERNAME}/workspace" \
     && chown -R "${USER_UID}:${USER_GID}" "/home/${USERNAME}"
-
-ENV DEBIAN_FRONTEND=
 
 USER ${USERNAME}
 WORKDIR /home/${USERNAME}/workspace

@@ -7,7 +7,7 @@
 
 项目目前只包含基础骨架：
 
-- 基于 Debian 的容器镜像；
+- 基于 Arch Linux 的容器镜像，并通过 `gh-proxy.org/docker` 加速拉取；
 - 容器用户与宿主机用户名一致；
 - Dev Containers 创建容器时同步宿主机 UID/GID，避免共享文件的权限问题；
 - 挂载宿主机的 `~/workspace`；
